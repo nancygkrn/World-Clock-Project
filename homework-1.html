@@ -12,14 +12,48 @@
         <option value="sydney">Sydney 🇦🇺</option>
         <option value="tokyo">Tokyo 🇯🇵</option>
     </select>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.31.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.6.5/moment-timezone-with-data-1970-2030.js"></script>
+<script>
+//Variables per selected option + date formating
+let tokyoTime = moment()
+        .tz("Asia/Tokyo")
+        .format("dddd, MMMM D, YYYY h:m A");
+      let tokyoElement = document.querySelector("#tokyo");
+
+let parisTime = moment()
+.tz("Europe/Paris")
+.format("dddd, MMMM D, YYYY h:m A");
+let parisElement = document.querySelector("#paris");
+
+let sydneyTime = moment()
+        .tz("Australia/Sydney")
+        .format("dddd, MMMM D, YYYY h:m A");
+      let sydneyElement = document.querySelector("#sydney");
+</script>
+
     <script>
+    // Alert message based on timezome
       function  alertSelectedTimezone (event){
-        if (event.target.value.length>0){
-            alert(event.target.value);
-        }}
+        if (event.target.value===""){
+            return;
+        }
+        else if (event.target.value==="paris"){
+            alert(`It is ${parisTime} in Europe/Paris`);
+        }
+         else if (event.target.value==="sydney"){
+            alert(`It is ${sydneyTime} in Australia/Sydney`);
+        }
+         else if (event.target.value==="tokyo"){
+            alert(`It is ${tokyoTime} in Asia/Tokyo`);
+        }
+    }
+    //Event listener for the user selected option
         let timeZone = document.querySelector("#time-zone");
-        
         timeZone.addEventListener('change', alertSelectedTimezone);
+   
+
     </script>
+   
 </body>
 </html>
