@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock</title>
+</head>
+<body>
+    <select name="time-zone" id="time-zone">
+        <option value="">Select a city</option>
+        <option value="paris">Paris 🇫🇷</option>
+        <option value="sydney">Sydney 🇦🇺</option>
+        <option value="tokyo">Tokyo 🇯🇵</option>
+    </select>
+    <script>
+      function  alertSelectedTimezone (event){
+        if (event.target.value.length>0){
+            alert(event.target.value);
+        }}
+        let timeZone = document.querySelector("#time-zone");
+        
+        timeZone.addEventListener('change', alertSelectedTimezone);
+    </script>
+</body>
+</html>
